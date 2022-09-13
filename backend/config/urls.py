@@ -6,10 +6,12 @@ from rest_framework.routers import DefaultRouter
 from django.conf.urls.static import static
 
 from posts.views import PostViewSet
+from videos.views import VideoViewSet
 
 schema_view = get_swagger_view(title='DanCraw API')
 router = DefaultRouter()
 router.register('posts', PostViewSet, basename='posts')
+router.register('videos', VideoViewSet, basename='videos')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 STATIC_DIR = BASE_DIR.parent
 sys.path.insert(0, os.path.join(BASE_DIR, "apps"))
 
-SECRET_KEY = 'django-insecure-jk63p)qc2k4g5q7v%9qd4k14icffd7tr8739-_*5#7to%9daec'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-jk63p)qc2k4g5q7v%9qd4k14icffd7tr8739-_*5#7to%9daec')
 
 DEBUG = True
 
@@ -28,7 +28,8 @@ AUTH_USER_MODEL = 'users.User'
 
 LOCAL_APPS = [
     'users',
-    'posts'
+    'posts',
+    'videos'
 ]
 
 DJANGO_APPS = [
@@ -175,7 +176,7 @@ CONSTANCE_CONFIG = {
     'LANGUAGE': ('EN', 'Select language', 'language_select'),
 }
 
-# SIMPLE_JWT = {
-#     'ACCESS_TOKEN_LIFETIME': timedelta(days=14),
-#     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
-# }
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=14),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+}
